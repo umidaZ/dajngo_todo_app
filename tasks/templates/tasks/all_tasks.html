@@ -1,0 +1,17 @@
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+    {% if tasks %}
+        {% for task in tasks %}
+            <div id="container">
+            	<ul>
+            		<li><span><i class="fa fa-trash"></i></span>{{task.title}}</li>
+            	</ul>
+                <a class="all_tasks_a" href="{% url 'tasks:task_detail' task.pk %}"><span class="badge bg-info-subtle text-info-emphasis rounded-pill">View</span></a>
+
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>There is no task!</p>
+    {% endif%}
+{% endblock %}
